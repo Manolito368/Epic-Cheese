@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "cheesemod:bloque_queso"
+      }
+    ],
+    "result": {
+      "item": "cheesemod:queso",
+      "count": 4
+    }
+  }

@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "minecraft:bread"
+      },
+      {
+        "item": "cheesemod:queso"
+      }
+    ],
+    "result": {
+      "item": "cheesemod:pan_queso"
+    }
+  }
