@@ -3,5 +3,6 @@
     "block.cheesemod.bloque_queso": "Block of cheese",
     "item.cheesemod.pan_queso": "Bread with cheese",
     "item.cheesemod.queso_derretido": "Bread with melted cheese",
-    "block.cheesemod.queso_cueva": "Cheese Ore"
+    "block.cheesemod.queso_cueva": "Cheese Ore",
+    "biome.cheesemod.cheese_plains": "Cheese Plains"
   }

@@ -2,5 +2,7 @@
     "item.cheesemod.queso": "Queso",
     "block.cheesemod.bloque_queso": "Bloque de Queso",
     "item.cheesemod.pan_queso": "Pan con queso",
-    "item.cheesemod.queso_derretido": "Pan con queso derretido"
+    "item.cheesemod.queso_derretido": "Pan con queso derretido",
+    "block.cheesemod.queso_cueva": "Mena de Queso",
+    "biome.cheesemod.cheese_plains": "Planicie de Queso"
   }

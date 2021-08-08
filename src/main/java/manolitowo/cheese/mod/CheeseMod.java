@@ -7,6 +7,8 @@ package manolitowo.cheese.mod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -48,10 +50,10 @@ public class CheeseMod implements ModInitializer {
 	private static ConfiguredFeature<?,?> CHEESE_ORE_OVERWORLD = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, QUESO_CUEVA.getDefaultState(), 4))
 	.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(55))))).spreadHorizontally().repeat(15);
 
-	/*biome
+	//biome
 	private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CHEESE_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
     .withConfig(new TernarySurfaceConfig(
-      Blocks.ANDESITE.getDefaultState(),
+      Blocks.CUT_COPPER.getDefaultState(),
       Blocks.DIRT.getDefaultState(),
       Blocks.GRAVEL.getDefaultState()));
 
@@ -77,24 +79,24 @@ public class CheeseMod implements ModInitializer {
 	 
 		return (new Biome.Builder())
 		  .precipitation(Biome.Precipitation.RAIN)
-		  .category(Biome.Category.NONE)
+		  .category(Biome.Category.PLAINS)
 		  .depth(0.125F)
 		  .scale(0.05F)
 		  .temperature(0.8F)
 		  .downfall(0.4F)
 		  .effects((new BiomeEffects.Builder())
-			.waterColor(0x3f76e4)
-			.waterFogColor(0x050533)
-			.fogColor(0xc0d8ff)
-			.skyColor(0x77adff)
+			.waterColor(0xF9D73F)
+			.waterFogColor(0xF9D73F)
+			.fogColor(0xF9C11E)
+			.skyColor(0xFFE738)
 			.build())
 		  .spawnSettings(spawnSettings.build())
 		  .generationSettings(generationSettings.build())
-		  .build();*/
+		  .build();}
 
-		  //public static final RegistryKey<Biome> CHEESE_PLAINS_Key = RegistryKey.of(Registry.BIOME_KEY, new Identifier("cheesemod", "cheese_plains"));
+		  public static final RegistryKey<Biome> CHEESE_PLAINS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("cheesemod", "cheese_plains"));
 
-//}
+
 	@Override
 	public void onInitialize() {
 	
@@ -110,7 +112,9 @@ public class CheeseMod implements ModInitializer {
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, cheeseOreOverworld.getValue(), CHEESE_ORE_OVERWORLD);
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, cheeseOreOverworld);
 
-		//Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("tutorial", "obsidian"), CHEESE_SURFACE_BUILDER);
-    	//Registry.register(BuiltinRegistries.BIOME, CHEESE_PLAINS_KEY.getValue(), CHEESE_PLAINS);
+		Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("cheesemod", "cheese"), CHEESE_SURFACE_BUILDER);
+    	Registry.register(BuiltinRegistries.BIOME, CHEESE_PLAINS_KEY.getValue(), CHEESE_PLAINS);
+		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.TEMPERATE, 2D);
+		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.COOL, 2D);
 	}
 }
