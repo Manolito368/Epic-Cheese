@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cheesemod",
-  "version": "0.0.3-RELEASE",
+  "version": "0.0.4-beta1",
 
   "name": "Epic Cheese Mod",
   "description": "Add cheese and related things!",
