@@ -41,13 +41,13 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 public class CheeseMod implements ModInitializer {
 //items and blocks
-	public static final Item QUESO = new Item(new Item.Settings().group(ItemGroup.FOOD));
-	public static final Block BLOQUE_QUESO = new Block(FabricBlockSettings.of(Material.SOIL).strength(0.5F, 0.5F).sounds(BlockSoundGroup.CORAL).breakByTool(FabricToolTags.HOES));
-	public static final Item PAN_QUESO = new Item(new Item.Settings().group(ItemGroup.FOOD).food(ComidaQuesoComponents.PAN_QUESO));
-	public static final Item QUESO_DERRETIDO = new Item(new Item.Settings().group(ItemGroup.FOOD).food(ComidaQuesoComponents.QUESO_DERRETIDO));
-	public static final Block QUESO_CUEVA = new OreQueso(FabricBlockSettings.of(Material.SOIL).strength(2.5F, 2.5F).sounds(BlockSoundGroup.STONE).breakByTool(FabricToolTags.PICKAXES));
+	public static final Item CHEESE = new Item(new Item.Settings().group(ItemGroup.FOOD));
+	public static final Block CHEESE_BLOCK = new Block(FabricBlockSettings.of(Material.SOIL).strength(0.5F, 0.5F).sounds(BlockSoundGroup.CORAL).breakByTool(FabricToolTags.HOES));
+	public static final Item CHEESE_BREAD = new Item(new Item.Settings().group(ItemGroup.FOOD).food(CheeseFoodComponents.CHEESE_BREAD));
+	public static final Item MELTED_CHEESE_BREAD = new Item(new Item.Settings().group(ItemGroup.FOOD).food(CheeseFoodComponents.MELTED_CHEESE_BREAD));
+	public static final Block CHEESE_ORE = new CheeseOre(FabricBlockSettings.of(Material.SOIL).strength(2.5F, 2.5F).sounds(BlockSoundGroup.STONE).breakByTool(FabricToolTags.PICKAXES));
 
-	private static ConfiguredFeature<?,?> CHEESE_ORE_OVERWORLD = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, QUESO_CUEVA.getDefaultState(), 4))
+	private static ConfiguredFeature<?,?> CHEESE_ORE_OVERWORLD = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, CHEESE_ORE.getDefaultState(), 4))
 	.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(55))))).spreadHorizontally().repeat(15);
 
 	//biome
@@ -100,15 +100,15 @@ public class CheeseMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 	
-		Registry.register(Registry.ITEM, new Identifier("cheesemod", "queso"), QUESO);
-		Registry.register(Registry.BLOCK, new Identifier("cheesemod", "bloque_queso"), BLOQUE_QUESO);
-		Registry.register(Registry.ITEM, new Identifier("cheesemod", "bloque_queso"), new BlockItem(BLOQUE_QUESO, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-		Registry.register(Registry.ITEM, new Identifier("cheesemod", "pan_queso"), PAN_QUESO);
-		Registry.register(Registry.ITEM, new Identifier("cheesemod", "queso_derretido"), QUESO_DERRETIDO);
-		Registry.register(Registry.BLOCK, new Identifier("cheesemod", "queso_cueva"), QUESO_CUEVA);
-		Registry.register(Registry.ITEM, new Identifier("cheesemod", "queso_cueva"), new BlockItem(QUESO_CUEVA, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+		Registry.register(Registry.ITEM, new Identifier("cheesemod", "cheese"), CHEESE);
+		Registry.register(Registry.BLOCK, new Identifier("cheesemod", "cheese_block"), CHEESE_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier("cheesemod", "cheese_block"), new BlockItem(CHEESE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+		Registry.register(Registry.ITEM, new Identifier("cheesemod", "cheese_bread"), CHEESE_BREAD);
+		Registry.register(Registry.ITEM, new Identifier("cheesemod", "melted_cheese_bread"), MELTED_CHEESE_BREAD);
+		Registry.register(Registry.BLOCK, new Identifier("cheesemod", "cheese_ore"), CHEESE_ORE);
+		Registry.register(Registry.ITEM, new Identifier("cheesemod", "cheese_ore"), new BlockItem(CHEESE_ORE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
-		RegistryKey<ConfiguredFeature<?, ?>> cheeseOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("cheesemod", "queso_cueva"));
+		RegistryKey<ConfiguredFeature<?, ?>> cheeseOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("cheesemod", "cheese_ore"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, cheeseOreOverworld.getValue(), CHEESE_ORE_OVERWORLD);
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, cheeseOreOverworld);
 
