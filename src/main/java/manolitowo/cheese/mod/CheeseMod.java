@@ -53,7 +53,7 @@ public class CheeseMod implements ModInitializer {
 	//biome
 	private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CHEESE_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
     .withConfig(new TernarySurfaceConfig(
-      Blocks.CUT_COPPER.getDefaultState(),
+      Blocks.GRASS_BLOCK.getDefaultState(),
       Blocks.DIRT.getDefaultState(),
       Blocks.GRAVEL.getDefaultState()));
 
@@ -65,17 +65,18 @@ public class CheeseMod implements ModInitializer {
 		DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
 		DefaultBiomeFeatures.addMonsters(spawnSettings, 95, 5, 100);
 	 
-		GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
+		var generationSettings = new GenerationSettings.Builder();
 		generationSettings.surfaceBuilder(CHEESE_SURFACE_BUILDER);
 		DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
 		DefaultBiomeFeatures.addLandCarvers(generationSettings);
-		DefaultBiomeFeatures.addDefaultLakes(generationSettings);
 		DefaultBiomeFeatures.addDungeons(generationSettings);
 		DefaultBiomeFeatures.addMineables(generationSettings);
 		DefaultBiomeFeatures.addDefaultOres(generationSettings);
 		DefaultBiomeFeatures.addDefaultDisks(generationSettings);
 		DefaultBiomeFeatures.addSprings(generationSettings);
 		DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
+		DefaultBiomeFeatures.addDripstone(generationSettings);
+		DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
 	 
 		return (new Biome.Builder())
 		  .precipitation(Biome.Precipitation.RAIN)
@@ -89,6 +90,8 @@ public class CheeseMod implements ModInitializer {
 			.waterFogColor(0xF9D73F)
 			.fogColor(0xF9C11E)
 			.skyColor(0xFFE738)
+			.foliageColor(0xFFDD00)
+			.grassColor(0xFFDD00)
 			.build())
 		  .spawnSettings(spawnSettings.build())
 		  .generationSettings(generationSettings.build())
@@ -112,7 +115,7 @@ public class CheeseMod implements ModInitializer {
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, cheeseOreOverworld.getValue(), CHEESE_ORE_OVERWORLD);
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, cheeseOreOverworld);
 
-		Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("cheesemod", "cheese"), CHEESE_SURFACE_BUILDER);
+		Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("cheesemod", "cheese_s"), CHEESE_SURFACE_BUILDER);
     	Registry.register(BuiltinRegistries.BIOME, CHEESE_PLAINS_KEY.getValue(), CHEESE_PLAINS);
 		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.TEMPERATE, 2D);
 		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.COOL, 2D);
