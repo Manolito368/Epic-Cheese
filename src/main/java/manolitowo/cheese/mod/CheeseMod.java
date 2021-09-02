@@ -46,7 +46,7 @@ public class CheeseMod implements ModInitializer {
 	public static final Item CHEESE_BREAD = new Item(new Item.Settings().group(ItemGroup.FOOD).food(CheeseFoodComponents.CHEESE_BREAD));
 	public static final Item MELTED_CHEESE_BREAD = new Item(new Item.Settings().group(ItemGroup.FOOD).food(CheeseFoodComponents.MELTED_CHEESE_BREAD));
 	public static final Block CHEESE_ORE = new CheeseOre(FabricBlockSettings.of(Material.SOIL).strength(2.5F, 2.5F).sounds(BlockSoundGroup.STONE).breakByTool(FabricToolTags.PICKAXES));
-
+	public static final Block CHEESY_GRASS = new Block(FabricBlockSettings.of(Material.SOIL).strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRASS).breakByTool(FabricToolTags.SHOVELS));
 	private static ConfiguredFeature<?,?> CHEESE_ORE_OVERWORLD = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, CHEESE_ORE.getDefaultState(), 4))
 	.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(55))))).spreadHorizontally().repeat(15);
 
@@ -110,6 +110,8 @@ public class CheeseMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("cheesemod", "melted_cheese_bread"), MELTED_CHEESE_BREAD);
 		Registry.register(Registry.BLOCK, new Identifier("cheesemod", "cheese_ore"), CHEESE_ORE);
 		Registry.register(Registry.ITEM, new Identifier("cheesemod", "cheese_ore"), new BlockItem(CHEESE_ORE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+		Registry.register(Registry.BLOCK, new Identifier("cheesemod", "cheesy_grass"), CHEESY_GRASS);
+		Registry.register(Registry.ITEM, new Identifier("cheesemod", "cheesy_grass"), new BlockItem(CHEESY_GRASS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
 		RegistryKey<ConfiguredFeature<?, ?>> cheeseOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("cheesemod", "cheese_ore"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, cheeseOreOverworld.getValue(), CHEESE_ORE_OVERWORLD);
@@ -119,5 +121,7 @@ public class CheeseMod implements ModInitializer {
     	Registry.register(BuiltinRegistries.BIOME, CHEESE_PLAINS_KEY.getValue(), CHEESE_PLAINS);
 		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.TEMPERATE, 2D);
 		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.COOL, 2D);
+
+		//i played cookie clicker for 11 hours in 1 day pls help
 	}
 }

@@ -4,5 +4,6 @@
     "item.cheesemod.cheese_bread": "Bread with cheese",
     "item.cheesemod.melted_cheese_bread": "Bread with melted cheese",
     "block.cheesemod.cheese_ore": "Cheese Ore",
-    "biome.cheesemod.cheese_plains": "Cheese Plains"
+    "biome.cheesemod.cheese_plains": "Cheese Plains",
+    "block.cheesemod.cheesy_grass": "Cheesy Grass"
   }

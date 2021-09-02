@@ -1,0 +1,21 @@
+{
+    "variants": {
+      "": [
+        {
+          "model": "cheesemod:block/cheesy_grass"
+        },
+        {
+         "model": "cheesemod:block/cheesy_grass",
+          "y": 90
+        },
+        {
+         "model": "cheesemod:block/cheesy_grass",
+          "y": 180
+        },
+        {
+         "model": "cheesemod:block/cheesy_grass",
+          "y": 270
+        }
+      ]
+    }
+  }
