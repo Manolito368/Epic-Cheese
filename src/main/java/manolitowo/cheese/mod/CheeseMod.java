@@ -91,7 +91,7 @@ public class CheeseMod implements ModInitializer {
 			.fogColor(0xF9C11E)
 			.skyColor(0xFFE738)
 			.foliageColor(0xFFDD00)
-			.grassColor(0xFFDD00)
+			.grassColor(0xFBC122)
 			.build())
 		  .spawnSettings(spawnSettings.build())
 		  .generationSettings(generationSettings.build())
@@ -119,9 +119,8 @@ public class CheeseMod implements ModInitializer {
 
 		Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("cheesemod", "cheese_s"), CHEESE_SURFACE_BUILDER);
     	Registry.register(BuiltinRegistries.BIOME, CHEESE_PLAINS_KEY.getValue(), CHEESE_PLAINS);
-		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.TEMPERATE, 2D);
-		//OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.COOL, 2D);
+		OverworldBiomes.addContinentalBiome(CHEESE_PLAINS_KEY, OverworldClimate.TEMPERATE, 0.5D);
 
-		//i played cookie clicker for 11 hours in 1 day pls help
+		//I played cookie clicker for 166 hours pls help
 	}
 }
