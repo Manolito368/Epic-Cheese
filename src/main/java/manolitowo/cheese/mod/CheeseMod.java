@@ -53,7 +53,7 @@ public class CheeseMod implements ModInitializer {
 	//biome
 	private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CHEESE_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
     .withConfig(new TernarySurfaceConfig(
-      Blocks.GRASS_BLOCK.getDefaultState(),
+      CheeseMod.CHEESY_GRASS.getDefaultState(),
       Blocks.DIRT.getDefaultState(),
       Blocks.GRAVEL.getDefaultState()));
 
@@ -91,7 +91,7 @@ public class CheeseMod implements ModInitializer {
 			.fogColor(0xF9C11E)
 			.skyColor(0xFFE738)
 			.foliageColor(0xFFDD00)
-			.grassColor(0xFBC122)
+			.grassColor(0xFFDD00)
 			.build())
 		  .spawnSettings(spawnSettings.build())
 		  .generationSettings(generationSettings.build())
