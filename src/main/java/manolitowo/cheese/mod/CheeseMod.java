@@ -77,6 +77,7 @@ public class CheeseMod implements ModInitializer {
 		DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 		DefaultBiomeFeatures.addDripstone(generationSettings);
 		DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
+		DefaultBiomeFeatures.addForestGrass(generationSettings);
 	 
 		return (new Biome.Builder())
 		  .precipitation(Biome.Precipitation.RAIN)
